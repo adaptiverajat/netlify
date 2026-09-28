@@ -5,8 +5,8 @@ import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
 import contentCollections from '@content-collections/vite'
 
-export default defineConfig({
-  base: '/netlify/', // Ensure base path matches your GitHub repo name
+const config = defineConfig({
+  base: '/netlify/',
   plugins: [
     contentCollections(),
     viteTsConfigPaths({
@@ -15,9 +15,11 @@ export default defineConfig({
     tailwindcss(),
     tanstackStart({
       prerender: {
-        routes: ['/'], // Prerenders static HTML files at build time
+        routes: ['/'],
       },
     }),
     viteReact(),
   ],
 })
+
+export default config
