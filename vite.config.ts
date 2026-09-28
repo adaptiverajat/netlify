@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 import contentCollections from '@content-collections/vite'
 
 export default defineConfig({
-  base: '/netlify/', // Ensure this matches your GitHub repository name
+  base: '/', // Ensure this matches your GitHub repository name
   plugins: [
     contentCollections(),
     viteTsConfigPaths({
