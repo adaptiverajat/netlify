@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main"] # Change to "master" if your default branch is master
   workflow_dispatch:
 
 permissions:
@@ -35,16 +35,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Inspect build output structure
-        run: |
-          echo "=== Root Directory Listing ==="
-          ls -la
-          echo "=== Dist Directory Listing (if exists) ==="
-          ls -la dist || true
-          echo "=== .output Directory Listing (if exists) ==="
-          ls -la .output || true
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/client' # We will adjust this based on the log output
+          path: './dist/client'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
