@@ -35,11 +35,16 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Inspect build output structure
+        run: |
+          echo "=== Root Directory Listing ==="
+          ls -la
+          echo "=== Dist Directory Listing (if exists) ==="
+          ls -la dist || true
+          echo "=== .output Directory Listing (if exists) ==="
+          ls -la .output || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './.output/public'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          path: './dist/client' # We will adjust this based on the log output
