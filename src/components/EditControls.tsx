@@ -9,8 +9,14 @@ export function EditControls() {
   const [confirmingReset, setConfirmingReset] = useState(false)
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2 print:hidden">
-      {editMode && (
+    <>
+    </>
+  )
+}
+/**
+ * 
+ * <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2 print:hidden">
+        {editMode && (
         <div className="flex max-w-xs flex-wrap items-center justify-end gap-2 rounded-xl border border-border bg-card/95 px-3 py-2 shadow-lg backdrop-blur">
           <span className="mr-1 text-xs text-muted-foreground">
             Click any text on the page to edit it. Changes save automatically in this
@@ -75,5 +81,5 @@ export function EditControls() {
         </span>
       )}
     </div>
-  )
-}
+ * 
+ */
