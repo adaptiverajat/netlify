@@ -1,8 +1,8 @@
-name: Deploy Vite site to Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Change to "master" if your default branch is master
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -32,17 +32,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Vite app
+      - name: Build project
         run: npm run build
-
-      - name: Create 404 fallback for SPA routing
-        run: cp ./dist/index.html ./dist/404.html || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
-          
+          path: './.output/public'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
