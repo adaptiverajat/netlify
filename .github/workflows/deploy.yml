@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './.output/public' # TanStack Start builds static HTML/assets here
+          path: './dist'
           
       - name: Deploy to GitHub Pages
         id: deployment
